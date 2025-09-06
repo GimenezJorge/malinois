@@ -1,0 +1,5 @@
+*.cdr
+.DS_store
+Thumbs.db
+.vscode/
+node_modules/
