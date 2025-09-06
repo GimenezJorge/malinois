@@ -14,19 +14,24 @@ body{
   padding: 0;
   font-family: 'Oswald', sans-serif;
   font-weight: 300; /* Light */
+  padding-top: 70px; /* 👈 compensa la altura de la navbar */
 }
-
-
-
 
 .nav{
   display:flex; 
   align-items:center; 
-  padding:13px 24px; /* antes era 8px 16px */
+  padding:13px 24px; /* altura de la navbar */
   justify-content: space-between;
-  background: linear-gradient(135deg, rgba(102, 157, 220, 0.85), rgba(12, 30, 99, 0.95));
+  background: linear-gradient(135deg, rgba(102, 157, 220));
   backdrop-filter: blur(4px);
+
+  position: fixed;   /* la deja fija arriba */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;     /* se asegura de que quede por encima de la hero */
 }
+
 
 .nav__brand{
   display:inline-flex;
@@ -127,7 +132,7 @@ body{
   letter-spacing: .08em;
   line-height: 1.05;
   margin: 0 0 .35em;
-  text-shadow: 0 2px 14px rgb(0, 115, 255);
+  text-shadow: 0 2px 14px rgb(0, 0, 0);
 
 
 }
