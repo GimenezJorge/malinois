@@ -1,200 +1,567 @@
-/* ====== Hero base ====== */
-:root{
-  --bg-hero: #0b0b0b;
-  --accent: #f5c451;         /* podés ajustar el color de acento */
-  --text: #ffffff;
-  --text-dim: #d9d9d9;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-  --radius: 16px;
+/* ================= VARIABLES ================= */
+:root {
+	--brand: #000000;
+	--accent: #c5a451;
+	--text: #E4DED0;
+	--card-bg: rgba(18,18,18,.75);
+	--radius: 18px;
+	--shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* ================= RESET ================= */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+/* ================= BODY ================= */
+body {
+	padding-top: 60px;
+	font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial;
+	background: #0b0b0b url("../images/fondo.png") no-repeat center/cover;
+	color: var(--text);
+}
+::selection {
+	background: var(--accent);
+	color: var(--brand);
+}
+::-moz-selection {
+	background: var(--accent);
+	color: var(--brand);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 64px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 2rem;
+	background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+	box-shadow: inset 0 1px rgba(255,255,255,0.08), 0 2px 8px rgba(0,0,0,0.4);
+	z-index: 1000;
+}
+.navbar::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(
+		90deg, 
+		rgba(197,164,81,0) 0%, 
+		rgba(197,164,81,0.4) 50%,  
+		rgba(197,164,81,0) 100%
+	);
+}
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 900;
+	font-size: 1.6rem;
+	letter-spacing: -.02em;
+	z-index: 4;
+}
+.logo .logo-line1 { color: white; }
+.logo .logo-line2 { color: var(--accent); }
+.logo-flag {
+	height: 16px;  
+	width: auto;
+	margin-left: 6px;
+	border-radius: 2px;
+	object-fit: cover;
+}
+.nav_links { display: flex; gap: 2rem; }
+.nav_links a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 0.95rem;
+	letter-spacing: 0.02em;
+	position: relative;
+	transition: color 0.2s ease;
+}
+.nav_links a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 0;
+	height: 2px;
+	background-color: var(--accent);
+	transition: width 0.25s ease;
+}
+.nav_links a:hover { color: var(--accent); }
+.nav_links a:hover::after,
+.nav_links a.active::after { width: 100%; }
+.menu-toggle {
+	display: none;
+	background: none;
+	border: none;
+	font-size: 2rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+	position: relative;
+	min-height: 100dvh;
+	display: grid;
+	place-items: stretch;
+	overflow: hidden;
+	isolation: isolate;
+	scroll-margin-top: 64px;
+}
+.profile-1 {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	height: 800px;
+	z-index: -1;
+	pointer-events: none;
+}
+
+/* HERO CONTENT */
+.container {
+	display: grid;
+	align-content: start;
+	padding: min(6vw,56px);
+	gap: 24px;
+	height: 100%;
+	margin-left: auto;
+	width: 70%;
+}
+.hero-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 32px;
+}
+.kicker {   
+	margin-top: 40px;
+	margin-bottom: 12px;
+	font-weight: 700;
+	opacity: .95;
+	letter-spacing: .01em;
+	font-size: clamp(14px, 1.6vw, 18px);
+	align-self: flex-start;
+}
+.title-block h1 {
+	color: white;
+	margin: 0 0 24px 0;
+	font-size: clamp(28px, 4vw, 56px);
+	line-height: 1.1;
+	font-weight: 900;
+	text-wrap: balance;
+	text-align: center;
+}
+.title-block h1 .accent { color: var(--accent); }
+
+/* ================= BOTONES ================= */
+.btn {
+	appearance: none;
+	border: 0;
+	border-radius: 12px;
+	padding: 20px 32px;
+	font-weight: 700;
+	background: var(--accent);
+	color: #fff;
+	cursor: pointer;
+	box-shadow: var(--shadow);
+	transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem; 
+}
+.btn:hover {
+	filter: brightness(1.15);
+	transform: translateY(-4px);
+	box-shadow: 0 14px 40px rgba(0,0,0,.45);
+}
+.btn.secondary {
+	background: transparent;
+	color: #fff;
+	border: 1px solid rgba(255,255,255,.22);
+	box-shadow: none;
+}
+.btn.secondary:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 20px rgba(0,0,0,.35);
+}
+.galeria .btn-ver-todos {
+	margin-top: 40px;
+	background: #111;
+	color: #fff;
+	box-shadow: var(--shadow);
+}
+
+/* CTA SECTION */
+.cta-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+	margin-top: 65px;
+}
+.cta-section .sub {
+	margin: 0;
+	font-size: clamp(16px, 1.8vw, 20px);
+	opacity: .9;
+	text-align: center;
+}
+.btn-group {
+	display: flex;
+	flex-direction: row;
+	gap: 16px;
+	justify-content: center;
+}
+
+/* CTA CARD */
+.cta-card {
+	position: relative;
+	top: 150px;
+	margin: 0 auto;
+	background: var(--card-bg);
+	backdrop-filter: blur(8px);
+	border: 2px solid rgba(197,164,81,0.4);
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	padding: 20px;
+	max-width: 650px;
+}
+.thumb {
+	width: 68px;
+	height: 68px;
+	flex: 0 0 68px;
+	border-radius: 12px;
+	overflow: hidden;
+	border: 1px solid rgba(255,255,255,.12);
+}
+.thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.cta-copy {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	text-align: center;
+}
+.cta-meta { 
+	opacity: .9; 
+	font-size: 16px; 
+	font-weight: 600; 
+	margin: 0; 
+}
+.chips {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.chip {
+	font-size: 12px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: rgba(255,255,255,.12);
+	border: 1px solid rgba(255,255,255,.18);
+	cursor: default;
+}
+.chip:hover {
+	background: rgba(255,255,255,.22);
+	border-color: rgba(197,164,81,0.5);
+	color: var(--accent);
+}
+
+/* ================= GALERÍA ================= */
+.galeria {
+	width: 100%;
+	position: relative;
+	background: #0b0b0b url("../images/fondo3.png") no-repeat center/cover;
+	color: #fff;
+	padding: 60px 10vw;
+	text-align: center;
+	z-index: 1;
+	overflow: hidden;
+}
+.galeria h2 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: clamp(28px, 4vw, 48px);
+	margin-bottom: 16px;
+	color: rgb(0, 0, 0);
+	text-align: left;
+}
+.galeria p {
+	max-width: 1900px;
+	margin: 0 auto 48px auto;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: black; 
+	text-align: justify;
+}
+.galeria-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 20px;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+.galeria-grid img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+.galeria-grid img:hover {
+	transform: scale(1.0);
+	filter: brightness(1.2);
+}
+.galeria .btn-ver-todos {
+	margin-top: 40px;
+	background: #111;
+	color: #fff;
+	box-shadow: var(--shadow);
+}
+
+/* ================= SOBRE NOSOTROS ================= */
+.sobre-nosotros {
+	width: 100%;
+	position: relative;
+	background: #D9CBA3;
+	color: #111;
+	padding: 100px 10vw;
+	text-align: center;
+	z-index: 1;
+}
+.sobre-nosotros::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: linear-gradient(to right, #e6d3a8, #c5a451, #7d6330);
+	clip-path: polygon(0 65%, 100% 0, 100% 100%, 0% 100%);
+	transform: rotate(-0.2deg);
+	z-index: 2;
+}
+.sobre-nosotros h2 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: clamp(28px, 4vw, 42px);
+	margin-bottom: 24px;
+	color: #000;
+}
+.sobre-nosotros p {
+	max-width: 800px;
+	margin: 0 auto;
+	font-size: 1.1rem;
+	line-height: 1.6;
+}
+.sobre-nosotros .btn {
+	background: #111;
+	color: #fff;
+	box-shadow: var(--shadow);
+	margin-top: 40px;
+}
+
+/* ================= BREED INFO ================= */
+.breed-info {
+	width: 100%;
+	position: relative;
+	background: #111 url("../images/fondo2.png") no-repeat center/cover;
+	color: #fff;
+	padding: 100px 10vw;
+}
+.breed-info::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: linear-gradient(to right, #7d6330, #c5a451, #e6d3a8);
+	clip-path: polygon(0 65%, 100% 0, 100% 100%, 0% 100%);
+	transform: rotate(0.2deg);
+	z-index: 2;
+}
+.breed-info-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: clamp(20px, 10vw, 170px);
+	align-items: stretch;
+}
+.breed-info-text {
+	min-width: 280px; 
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.breed-info-text h2 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: clamp(28px, 4vw, 48px);
+	color: white;
+	margin-bottom: 12px;
+}
+.breed-info-text .subtitulo {
+	color: var(--accent);
+	font-weight: 600;
+	margin-bottom: 24px;
+}
+.breed-info-text p {
+	font-size: 1.1rem;
+	line-height: 1.6;
+	margin-bottom: 32px;
+	color: var(--text);
+	text-align: justify;
+}
+.breed-info-text .btn {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.breed-info-fotos {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	height: 87.5%;
+	margin-top: 60px;
+	min-width: 500px;
+}
+.breed-info-fotos img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: left center;
+	border-radius: 8px;
+	box-shadow: var(--shadow);
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+.breed-info-fotos img:hover {
+	transform: scale(1.0);
+	filter: brightness(1.2);
+}
+.fuente {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 5px;
+	font-size: 0.85rem;
+	color: #aaa;
+}
+.fuente a {
+	color: #c5a451;
+	text-decoration: none;
+}
+.fuente a:hover {
+	text-decoration: underline;
+}
+
+/* ================= FOOTER ================= */
+footer {
+	padding: 28px 6vw;
+	color: #bcbcbc;
+	font-size: 14px;
+	text-align: center;
+}
+
+/* ================= BOTONES REDES ================= */
+.social-float-right {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	z-index: 999;
+}
+.social-float-right a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform 0.2s ease;
+}
+.social-float-right a img {
+	width: 36px;
+	height: 36px;
+}
+.social-float-right a:hover {
+	transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .breed-info-container {
+    grid-template-columns: 1fr;   /* texto arriba, fotos abajo */
+    gap: 20px;
+  }
+
+  .breed-info-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 👈 3 columnas como escritorio */
+    gap: 10px;                              /* menos separación para entrar en pantallas chicas */
+    margin-top: 20px;
+    height: auto;
+  }
+
+  .breed-info-fotos img {
+    width: 100%;         /* ocupan toda la celda */
+    height: auto;        /* respetan proporción */
+    aspect-ratio: 3/4;   /* opcional, asegura proporción consistente */
+    object-fit: cover;
+    margin: 0;
+  }
 }
 
 
-body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 300; /* Light */
-  padding-top: 70px; /* 👈 compensa la altura de la navbar */
+@media (max-width: 768px) {
+	.nav_links {
+		display: none;
+		flex-direction: column;
+		background: rgba(0,0,0,0.95);
+		position: absolute;
+		top: 100%;
+		right: 0;
+		padding: 1rem;
+		border-radius: 0 0 8px 8px;
+	}
+	.nav_links.show { display: flex; }
+	.menu-toggle { display: block; }
+	.galeria-grid { grid-template-columns: 1fr; }
+
+	/* 👇 fondos alternativos para mobile */
+	.breed-info {
+		background: #111 url("../images/fondo2-mobile.png") no-repeat center/cover;
+	}
+  .galeria {
+    background-image: url("../images/fondo3-mobile.png");
+    background-repeat: no-repeat;
+    background-position: center center; /* centrado real */
+    background-size: cover;             /* mismo comportamiento que breed */
+    /* si ya tenías un shorthand 'background: ...', dejalo fuera para no pisar estas props */
+  }
 }
 
-.nav{
-  display:flex; 
-  align-items:center; 
-  padding:13px 24px; /* altura de la navbar */
-  justify-content: space-between;
-  background: linear-gradient(135deg, rgba(102, 157, 220));
-  backdrop-filter: blur(4px);
-
-  position: fixed;   /* la deja fija arriba */
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;     /* se asegura de que quede por encima de la hero */
-}
-
-
-.nav__brand{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
-  color:inherit;
-  font-weight:700;
-}
-
-.nav__logo{
-  height: 40px;  /* fijo, no se achica nunca */
-  width: auto;
-}
-
-
-.nav__menu{
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: clamp(2px, 1vw, 15px); /* mínimo 8px, ideal 3% del ancho, máximo 24px */
-  margin: 0;
-  padding: 0;
-}
-
-.nav__toggle{ 
-  display: none; 
-  font-size: 24px;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* A partir de 768px hacia abajo */
-@media (max-width: 768px){
-  .nav__menu{ display: none; }
-  .nav__toggle{ display: block; }
-}
-
-
-.nav__link{
-  padding: 6px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: #ffffff;
-  text-shadow: 0 0 6px rgba(0,0,0,.8);
-  font-weight: 500;
-  transition: background .2s, color .2s, text-shadow .2s;
-  white-space: nowrap;   /* 👈 evita que se divida en dos líneas */
-}
-
-
-.nav__link:hover{
-  background: var(--accent);
-  color: #000000;
-  text-shadow: none;
-}
-
-/* HERO */
-.hero{
-  position: relative;
-  min-height: 86vh;              /* ocupa casi toda la pantalla */
-  display: grid;
-  place-items: center;
-  text-align: center;
-  color: var(--text);
-  background: var(--bg-hero) center/cover no-repeat fixed;
-  background-image: url("../images/hero-malinois.jpg");
-
-
-
-}
-
-
-
-
-.hero__overlay{
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,.55) 0%,
-    rgba(0,0,0,.35) 40%,
-    rgba(0,0,0,.60) 100%
-  );
-  backdrop-filter: blur(1px);
-}
-
-.hero__content{
-  position: relative;
-  z-index: 1;
-  padding: clamp(16px, 3vw, 24px);
-  max-width: min(1000px, 92vw);
-}
-
-.hero__title{
-  font-size: clamp(40px, 8vw, 80px);
-  letter-spacing: .08em;
-  line-height: 1.05;
-  margin: 0 0 .35em;
-  text-shadow: 0 2px 14px rgb(0, 0, 0);
-
-
-}
-
-.hero__subtitle{
-  font-size: clamp(16px, 2.6vw, 22px);
-  color: var(--text-dim);
-  margin: 0 auto 1.25em;
-  max-width: 48ch;
-}
-
-.hero__ctas{
-  display: inline-flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
-/* Botones */
-.btn{
-  --padY: 12px; --padX: 18px;
-  display: inline-block;
-  padding: var(--padY) clamp(16px, 2vw, var(--padX));
-  border-radius: var(--radius);
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform .15s ease, box-shadow .15s ease, background-color .2s ease;
-  will-change: transform;
-}
-
-.btn:focus{ outline: 3px solid var(--accent); outline-offset: 2px; }
-
-.btn--primary{
-  background: var(--accent);
-  color: #1a1a1a;
-  box-shadow: var(--shadow);
-}
-.btn--primary:hover{ transform: translateY(-1px); }
-
-.btn--ghost{
-  border: 2px solid rgba(255,255,255,.65);
-  color: var(--text);
-  background: transparent;
-  backdrop-filter: blur(2px);
-}
-.btn--ghost:hover{ background: rgba(255,255,255,.08); }
-
-/* Meta */
-.hero__meta{
-  margin-top: 4px;
-  font-size: clamp(12px, 1.8vw, 14px);
-  color: rgba(255,255,255,.75);
-}
-
-/* ====== Preferencia de movimiento reducido ====== */
-@media (prefers-reduced-motion: reduce){
-  .btn{ transition: none; }
-  .hero{ background-attachment: scroll; }
-}
-
-/* ====== Ajustes en pantallas muy altas (evita “agujeros”) ====== */
-@media (min-height: 1000px){
-  .hero{ min-height: 78vh; }
+@media (max-width: 560px) {
+	.cta-card { flex-direction: column; text-align: center; }
+	.thumb { width: 100%; height: 120px; }
 }

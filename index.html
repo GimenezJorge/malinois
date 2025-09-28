@@ -1,64 +1,179 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Inicio - MALINOIS ARGENTINA</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Criadero de perros Malinois carbonados. Venta y crianza responsable">
-        <meta name="keywords" content="malinois, perro, criadero, perros de raza, carbonado">
-        <meta name="author" content="Jorge Luis Gimenez">
-        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-        <meta name="robots" content="index, follow">
-        <meta property="og:title" content="MALINOIS ARGENTINA">
-        <meta property="og:description" content="Venta y crianza responsable de perros Malinois carbonados con pedigree.">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="https://GimenezJorge.github.io/malinois/images/og-malinois.jpg">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
-        <meta property="og:url" content="https://GimenezJorge.github.io/malinois/">
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css">
-    </head> 
-    <body>  
-        <header>
-        <nav class="nav">
-            <a href="index.html" class="nav__brand">
-                <img class="nav__logo" src="images/logo-malinois.jpg" alt="Malinois Argentina" width="795" height="831">
-                <span class="nav__brand-text">MALINOIS<br>ARGENTINA</span>
-            </a>
-            <button class="nav__toggle" aria-label="Abrir menú">☰</button>
-            <ul class="nav__menu">
-                <li><a class="nav__link" href="index.html">Inicio</a></li>
-                <li><a class="nav__link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                <li><a class="nav__link" href="nuestros-perros.html">Nuestros Perros</a></li>
-                <li><a class="nav__link" href="entrenamiento.html">Entrenamiento</a></li>
-                <li><a class="nav__link" href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+<head>      
+	<meta charset="UTF-8">
+	<title>Inicio - MALINOIS ARGENTINA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Criadero de perros Malinois carbonados. Venta y crianza responsable">
+	<meta name="keywords" content="malinois, perro, criadero, perros de raza, carbonado">
+	<meta name="author" content="Jorge Luis Gimenez">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+	<meta name="robots" content="index, follow">
+	<meta property="og:title" content="MALINOIS ARGENTINA">
+	<meta property="og:description" content="Venta y crianza responsable de perros Malinois carbonados con pedigree.">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://GimenezJorge.github.io/malinois/images/og-malinois.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:url" content="https://GimenezJorge.github.io/malinois/">
+	<meta property="og:site_name" content="Malinois Argentina">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar">
+			<div class="logo" aria-label="Marca">
+				<span class="logo-line1">MALINOIS</span>
+				<span class="logo-line2">ARGENTINA</span>
+				<img src="images/bandera.png" alt="Bandera Argentina" draggable="false" class="logo-flag">
+			</div>
+			<button class="menu-toggle" aria-label="Abrir menú">☰</button>
+			<div class="nav_links">
+				<a href="#inicio">Inicio</a>
+				<a href="#sobre-nosotros">Sobre Nosotros</a>
+				<a href="#raza">La Raza</a>
+				<a href="#galeria">Galería</a>
+				<a href="#contacto">Contacto</a>
+			</div>
+		</nav>
+	</header>
 
-        </header>
-        <main>
-            <!-- HERO -->
-            <section class="hero" id="inicio">
-                <div class="hero__overlay"></div>
-                    <div class="hero__content">
-                        <h2 class="hero__title">MALINOIS<br>Argentina</h2>
-                        <p class="hero__subtitle">
-                            Crianza responsable en Ituzaingó, Zona Oeste de Buenos Aires.
-                        </p>
-                    <div class="hero__ctas">
-                        <a href="nuestros-perros.html" class="btn btn--primary">Ver nuestros perros</a>
-                        <a href="contacto.html" class="btn btn--ghost">Contactanos</a>
-                    </div>
-                </div>
-            </section>
-            <div style="height:2000px; background:rgba(255,255,255,0.05);"></div>
+	<main id="main-content">
+		<!-- HERO -->
+		<section id="inicio" class="hero">
+			<div class="container">
+				<img src="images/malinois-profile-1.png" alt="Perfil Malinois" class="profile-1" />
+				<div class="hero-content">
+					<div class="title-block">
+						<h2 class="kicker">Ovejeros Belga Carbonados</h2>
+						<h1>MALINOIS <span class="accent">ARGENTINA</span></h1>				
+						<div class="cta-section">
+							<p class="sub">Ejemplares con pedigree oficial</p>
+							<div class="btn-group">								
+								<a href="#galeria" class="btn">Ver cachorros</a>
+								<a href="#sobre-nosotros" class="btn secondary">Sobre nosotros</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            <!-- OTRAS SECCIONES IRÍAN ACÁ -->
-            </main>
+				<div class="cta-card">
+					<div class="thumb">
+						<img src="images/cachorro.png" alt="Malinois cachorro" />
+					</div>
+					<div class="cta-copy">
+						<h2 class="cta-meta">↓ Conocé nuestra camada actual ↓</h2>
+						<div class="chips">
+							<span class="chip">Cachorros disponibles</span>
+							<span class="chip">Asesoramiento experto</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-         
-    </body>
+		<!-- SOBRE NOSOTROS -->
+		<section id="sobre-nosotros" class="sobre-nosotros">
+			<div class="sobre-container">
+				<h2>Sobre Nosotros</h2>
+				<p>
+					En <strong>Malinois Argentina</strong> creemos en la <strong>fuerza, la lealtad y la disciplina</strong>.<br>
+					Nuestros Ovejeros Malinois no son solo perros: son guardianes, compañeros y aliados fieles.<br>
+					Criamos con pasión y respeto, formando ejemplares preparados para todo desafío.<br><br>
+					<strong class="slogan">Protección y disciplina, en el hogar y en el trabajo.</strong>
+				</p>
+				<a href="sobre-nosotros.html" class="btn secondary">Conocer más</a>
+			</div>
+		</section>
+
+		<!-- BREED INFO -->
+		<section id="raza" class="breed-info">
+			<div class="breed-info-container">
+				<div class="breed-info-text">
+					<h2>La raza más inteligente del mundo</h2>
+					<h3 class="subtitulo">Fuerza e inteligencia en cada ejemplar</h3>
+					<p>
+						El <strong>Pastor Belga Malinois</strong> es reconocido mundialmente por su 
+						inteligencia, fuerza y lealtad. Criamos y vendemos ejemplares seleccionados 
+						para custodiar, competir y convivir en <strong>familia</strong>, siempre bajo una 
+						crianza responsable y con pedigree oficial.
+					</p>
+					<p class="fuente">
+						Fuente: <a href="https://www.clarin.com/internacional/perro-inteligente-mundo-border-collie-estudio_0_ZeUGlPJU6G.html" target="_blank">Clarín 🔗</a>
+					</p>
+					<a href="#contacto" class="btn">Consultar disponibilidad</a>
+				</div>
+				<div class="breed-info-fotos">
+					<img src="images/breed1.jpg" alt="Malinois girl">
+					<img src="images/breed2.jpg" alt="Malinois tactics">
+					<img src="images/breed3.jpg" alt="Malinois pedigree">
+				</div>
+			</div>
+		</section>
+
+		<!-- GALERÍA -->
+		<section id="galeria" class="galeria">
+			<div class="galeria-container">
+				<h2>Galería</h2>
+				<p>
+					Cada cachorro entregado en nuestro criadero posee <strong>pedigree oficial</strong>. 
+					Es la garantía de que el ejemplar proviene de líneas controladas, con temperamento 
+					y cualidades que representan fielmente a la raza.
+				</p>
+
+				<div class="galeria-grid">
+					<img src="images/perro1.jpg" alt="Malinois 1">
+					<img src="images/perro2.jpg" alt="Malinois 2">
+					<img src="images/perro3.jpg" alt="Malinois 3">
+					<img src="images/perro4.jpg" alt="Malinois 4">
+					<img src="images/perro5.jpg" alt="Malinois 5">
+					<img src="images/perro6.jpg" alt="Malinois 6">
+					<img src="images/perro7.jpg" alt="Malinois 7">
+					<img src="images/perro8.jpg" alt="Malinois 8">
+				</div>				
+				<div class="btn-group" style="justify-content: flex-end;">
+					<a href="galeria.html" class="btn btn-ver-todos">Ver testimonios ➔</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACTO -->
+		<section id="contacto" class="contacto">
+			<div class="contacto-container">
+				<h2>Contacto</h2>
+				<p>Escribinos a través de nuestro <a href="https://wa.me/5491162195267" target="_blank">WhatsApp</a> o nuestras redes sociales.</p>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<small>© 2025 Malinois Argentina. Cría responsable de Ovejeros Belga Malinois</small>
+	</footer>
+
+	<!-- BOTONES REDES -->
+	<div class="social-float-right">
+		<a href="https://wa.me/5491162195267" target="_blank" aria-label="WhatsApp">
+			<img src="images/whatsapp.svg" alt="WhatsApp">
+		</a>
+		<a href="https://www.facebook.com/groups/5285452024802059/user/100052458232348/" target="_blank" aria-label="Facebook">
+			<img src="images/facebook.svg" alt="Facebook">
+		</a>
+		<a href="https://www.instagram.com/malinois_argentina/" target="_blank" aria-label="Instagram">
+			<img src="images/instagram.svg" alt="Instagram">
+		</a>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
 </html>
