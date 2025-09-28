@@ -10,7 +10,12 @@
 
 /* ================= RESET ================= */
 * { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	max-width: 100%;       /* 👈 evita overflow horizontal */
+	overflow-x: hidden;    /* 👈 evita scroll lateral */
+}
 
 /* ================= BODY ================= */
 body {
@@ -410,7 +415,7 @@ body {
 	align-items: stretch;
 }
 .breed-info-text {
-	min-width: 280px; 
+	min-width: 200px;  /* 👈 bajamos el mínimo */
 	max-width: 500px;
 	margin-left: auto;
 	margin-right: auto;
@@ -446,7 +451,7 @@ body {
 	gap: 20px;
 	height: 87.5%;
 	margin-top: 60px;
-	min-width: 500px;
+	/* ❌ sacado min-width */
 }
 .breed-info-fotos img {
 	width: 100%;
@@ -511,27 +516,25 @@ footer {
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
   .breed-info-container {
-    grid-template-columns: 1fr;   /* texto arriba, fotos abajo */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
   .breed-info-fotos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 👈 3 columnas como escritorio */
-    gap: 10px;                              /* menos separación para entrar en pantallas chicas */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
     margin-top: 20px;
     height: auto;
   }
 
   .breed-info-fotos img {
-    width: 100%;         /* ocupan toda la celda */
-    height: auto;        /* respetan proporción */
-    aspect-ratio: 3/4;   /* opcional, asegura proporción consistente */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
     object-fit: cover;
     margin: 0;
   }
 }
-
 
 @media (max-width: 768px) {
 	.nav_links {
@@ -552,13 +555,17 @@ footer {
 	.breed-info {
 		background: #111 url("../images/fondo2-mobile.png") no-repeat center/cover;
 	}
-  .galeria {
-    background-image: url("../images/fondo3-mobile.png");
-    background-repeat: no-repeat;
-    background-position: center center; /* centrado real */
-    background-size: cover;             /* mismo comportamiento que breed */
-    /* si ya tenías un shorthand 'background: ...', dejalo fuera para no pisar estas props */
-  }
+  	.galeria {
+    	background-image: url("../images/fondo3-mobile.png");
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    	background-size: cover;
+  	}
+
+	/* 👇 ajuste iconos redes */
+	.social-float-right {
+		right: 10px;
+	}
 }
 
 @media (max-width: 560px) {
